@@ -15,6 +15,9 @@
     - name: Get workflow nodes
       ansible.builtin.uri:
         url: "https://{{ aap_hostname }}api/v2/workflow_jobs/{{ tower_job_id }}/workflow_nodes/"
+        url_username: "{{ aap_user }}"
+        url_password: "{{ aap_password }}"
+        method: GET
         return_content: true
       register: workflow_nodes
 
