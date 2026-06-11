@@ -12,14 +12,14 @@
           3365303039306437310a383263616234663131376163623263653430346261643436343233396565
           3966
   tasks:
-    - name: Get workflow nodes
-      ansible.builtin.uri:
-        url: "https://{{ aap_hostname }}api/v2/workflow_jobs/{{ tower_job_id }}/workflow_nodes/"
-        url_username: "{{ aap_user }}"
-        url_password: "{{ aap_password }}"
-        method: GET
-        return_content: true
-      register: workflow_nodes
+    # - name: Get workflow nodes
+    #   ansible.builtin.uri:
+    #     url: "https://{{ aap_hostname }}api/v2/workflow_jobs/{{ tower_job_id }}/workflow_nodes/"
+    #     url_username: "{{ aap_user }}"
+    #     url_password: "{{ aap_password }}"
+    #     method: GET
+    #     return_content: true
+    #   register: workflow_nodes
 
     - ansible.builtin.debug:
-        var: workflow_nodes
+        var: tower_job_id
