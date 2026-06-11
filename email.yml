@@ -2,9 +2,9 @@
 - name: Sends email notifications based on the current workflow
   hosts: localhost
   vars:
-    - controller_hostname: "aap-cn01.tam.lab"
-    - aap-user: "ro_user"
-    - aap-password: !vault |
+    - aap_hostname: "aap-cn01.tam.lab"
+    - aap_user: "ro_user"
+    - aap_password: !vault |
           $ANSIBLE_VAULT;1.1;AES256
           35393332396238373662393532303366363534316562616131303762313765313666643937333463
           3737316533396638346639333366653632626465366136360a633734383038303838656362393630
@@ -14,9 +14,9 @@
   tasks:
     - name: Get workflow nodes
       ansible.builtin.uri:
-        url: "https://{{ controller_hostname }}api/v2/workflow_jobs/{{ tower_job_id }}/workflow_nodes/"
+        url: "https://{{ aap_hostname }}api/v2/workflow_jobs/{{ tower_job_id }}/workflow_nodes/"
         return_content: true
       register: workflow_nodes
 
-    - debug:
+    - ansible.builtin.debug:
         var: workflow_nodes
