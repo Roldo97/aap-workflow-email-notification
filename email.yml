@@ -47,7 +47,7 @@
 
     - name: Get main workflow job information
       ansible.builtin.uri:
-        url: "https://{{ aap_hostname }}/api/v2/workflow_jobs/{{ email_workflow_job_info.json.results[0].summary_fields.job.id }}/"
+        url: "https://{{ aap_hostname }}/api/v2/workflow_jobs/{{ email_workflow_nodes_info.json.results[0].summary_fields.job.id }}/"
         url_username: "{{ aap_user }}"
         url_password: "{{ aap_password }}"
         method: GET
