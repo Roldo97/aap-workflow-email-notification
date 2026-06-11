@@ -23,5 +23,16 @@
         return_content: true
       register: email_job_info
 
+    - name: Get workflow source workflow job information
+      ansible.builtin.uri:
+        url: "https://{{ aap_hostname }}{{ email_job_info.json.related.source_workflow_job }}"
+        url_username: "{{ aap_user }}"
+        url_password: "{{ aap_password }}"
+        method: GET
+        force_basic_auth: true
+        validate_certs: false
+        return_content: true
+      register: email_workflow_job_info
+
     - ansible.builtin.debug:
-        var: email_job_info
+      var: email_workflow_job_info
