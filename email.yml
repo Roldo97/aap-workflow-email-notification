@@ -35,4 +35,4 @@
       register: email_workflow_job_info
 
     - ansible.builtin.debug:
-      var: email_workflow_job_info
+        var: email_workflow_job_info
