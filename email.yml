@@ -45,6 +45,17 @@
         return_content: true
       register: email_workflow_nodes_info
 
-    - name: Debug email workflow nodes information
+    - name: Get main workflow job information
+      ansible.builtin.uri:
+        url: "https://{{ aap_hostname }}/api/v2/workflow_jobs/{{ email_workflow_job_info.json.results[0].summary_fields.job.id }}/"
+        url_username: "{{ aap_user }}"
+        url_password: "{{ aap_password }}"
+        method: GET
+        force_basic_auth: true
+        validate_certs: false
+        return_content: true
+      register: email_main_workflow_job_info
+
+    - name: Debug main workflow job information
       ansible.builtin.debug:
-        var: email_workflow_nodes_info.json
+        var: email_main_workflow_job_info
