@@ -70,3 +70,7 @@
     - name: Debug user information
       ansible.builtin.debug:
         var: email_user_info
+
+    - name: Debug nodes
+      ansible.builtin.debug:
+        var: nodes
