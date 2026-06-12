@@ -58,7 +58,7 @@
 
     - name: Get user information from main workflow job
       ansible.builtin.uri:
-        url: "https://{{ aap_hostname }}{{ email_main_workflow_job_info.json.launched_by.url }}"
+        url: "https://{{ aap_hostname }}{{ email_main_workflow_job_info.json.launched_by.url }}" # /api/v2/workflow_jobs/ID/
         url_username: "{{ aap_user }}"
         url_password: "{{ aap_password }}"
         method: GET
