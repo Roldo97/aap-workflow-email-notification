@@ -6,6 +6,6 @@ El job "{{ email_main_workflow_job_info.json.name }}" #{{ email_main_workflow_jo
 - Tiempo de ejecución: {{ (email_main_workflow_job_info.json.elapsed // 60) | int }} minuto(s) {{ (email_main_workflow_job_info.json.elapsed % 60) | int }} segundo(s)
 - Estado: {{ email_main_workflow_job_info.json.status }}
 - Nodos involucrados:
-{% for node in nodes %}
+{% for node in nodes | sort %}
   - {{ node }}
 {% endfor %}
