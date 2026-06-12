@@ -3,7 +3,7 @@ El job "{{ email_main_workflow_job_info.json.name }}" #{{ email_main_workflow_jo
 - Ejecutor: {{ email_user_info.json.first_name }} {{ email_user_info.json.last_name }} ({{ email_user_info.json.username }})
 - Inicio: {{ email_main_workflow_job_info.json.started }}
 - Fin: {{ email_main_workflow_job_info.json.finished }}
-- Tiempo de ejecución: {{ email_main_workflow_job_info.json.elapsed // 60 | round(0, 'floor') }} minutos {{ email_main_workflow_job_info.json.elapsed % 60 | round(0, 'floor') }} segundos
+- Tiempo de ejecución: {{ email_main_workflow_job_info.json.elapsed // 60 | float | round(0, 'floor') }} minuto(s) {{ email_main_workflow_job_info.json.elapsed % 60 | float | round(0, 'floor') }} segundo(s)
 - Estado: {{ email_main_workflow_job_info.json.status }}
 - Nodos involucrados:
 {% for node in nodes %}
