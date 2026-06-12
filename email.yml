@@ -71,7 +71,8 @@
       community.general.mail:
         host: "smtp.corp.redhat.com"
         port: 587
-        secure: try
+        secure: starttls
+        sender: "romorale-aap@redhat.com"
         to: "romorale@redhat.com"
         subject: "Notificación de finalización del job {{ email_main_workflow_job_info.json.name }} #{{ email_main_workflow_job_info.json.id }}"
         body: "{{ lookup('template', 'email_template.j2') }}"
