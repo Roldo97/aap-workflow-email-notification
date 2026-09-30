@@ -2,15 +2,9 @@
 - name: Sends email notifications based on the current workflow
   hosts: localhost
   vars:
-    - aap_hostname: "aap-cn01.tam.lab"
+    - aap_hostname: "aap-aio.lab.roldo.io"
     - aap_user: "ro_user"
-    - aap_password: !vault |
-          $ANSIBLE_VAULT;1.1;AES256
-          35393332396238373662393532303366363534316562616131303762313765313666643937333463
-          3737316533396638346639333366653632626465366136360a633734383038303838656362393630
-          30383263346332363362663661333563393661623565616437376637376138393538353238373261
-          3365303039306437310a383263616234663131376163623263653430346261643436343233396565
-          3966
+    - aap_password: "P@ssw0rd!"
   tasks:
     - name: Get email job information
       ansible.builtin.uri:
@@ -33,6 +27,10 @@
         validate_certs: false
         return_content: true
       register: email_workflow_job_info
+
+    - name: Debug variable
+      ansible.builtin.debug:
+        var: email_workflow_job_info
 
     - name: Get source workflow nodes information
       ansible.builtin.uri:
