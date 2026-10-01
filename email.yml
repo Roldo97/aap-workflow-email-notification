@@ -67,9 +67,8 @@
 
     - name: Send email notification
       community.general.mail:
-        host: "smtp.corp.redhat.com"
-        port: 587
-        secure: starttls
+        host: "172.16.5.179"
+        port: 2025
         sender: "romorale-aap@redhat.com"
         to: "romorale@redhat.com"
         subject: "Notificación de finalización del job {{ email_main_workflow_job_info.json.name }} #{{ email_main_workflow_job_info.json.id }}"
